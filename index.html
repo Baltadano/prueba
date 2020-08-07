@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando Formularios</title>
+    <style>
+        .thumb{
+            width: 200px;
+            height: 200px;
+            transition: 300ms all ease;
+    
+        }
+        .grande {
+            font-size: 250%;
+            font-weight: 250%;
+        }
+        .letra{ 
+        font-size : 12pt; 
+        font-family : arial,helvetica; 
+        font-weight : normal; 
+}
+    
+    </style>
+</head>
+<body>
+    <form action="https://es.pornhub.com/view_video.php?viewkey=ph5b590847deea1" name="formulario" method="get">
+        <div align="center">
+        <label id="titulo" class="">Validacion de Macho alfa:</label>
+          
+        </div>
+       
+        <label>Ecribe lo que estes pensando..:</label>
+        <br>
+        <input type="text" name="nombre" id="nombre" maxlength="30" placeholder="No pongas mamadas:" >
+        <br>
+        <label>Te gustan l@s??:</label>
+        <br>
+        <input type="radio" name="sexo" id="hombre" value="Hombre">Hombres<!--value = una cadena de texto-->
+        <input type="radio" name="sexo" id="hombre" value="Mujer" >Mujeres
+        <br>
+        <input type="checkbox" name="terminos" id="terminos" >Terminos y condiciones.
+        <br>
+        <input type="submit" id="btn" name="btn" value="Enviar:">
+    </form>
+    <script>
+        (function(){//funcion autoinvocada
+                var titulo = document.getElementById("titulo");
+                    titulo.setAttribute("class","grande");
+                var validarNombre = function(e){//nombre no tiene que estar vacio
+                    if(formulario.nombre.value == 0){
+                        alert("Debes rellenar el campo nombre");
+                        //console.log("Hola");
+                        e.preventDefault();
+                    }
+                };
+
+                var validarRadio = function(e){//checkbox deve estar seleccionado
+                    if(formulario.sexo[0].checked== true||formulario.sexo[1].checked== true){
+                    }else{
+                        alert("completa el campo sexo");
+                        e.preventDefault();
+
+                    }
+                }
+
+                var validarCheckbox = function(e){
+                    if(formulario.terminos.checked==true){//true es que no selecciono y false que si lo hizo
+                    }else{
+                        alert("completa el campo terminos");
+                        
+                        
+                        e.preventDefault();
+                    }
+                };
+
+
+                var validar = function(e){
+                        validarNombre(e);
+                        validarRadio(e);
+                        validarCheckbox(e);
+                };
+
+                formulario.addEventListener("submit",validar);
+
+               
+                
+        }())
+    </script>
+    
+</body>
+</html>
+
